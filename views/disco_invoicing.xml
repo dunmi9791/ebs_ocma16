@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ebs_ocma_disco_invoicing_view_tree" model="ir.ui.view">
+            <field name="name">ebs.ocma.disco.invoicing.view.tree</field>
+            <field name="model">ebs_ocma.disco.invoicing</field>
+            <field name="arch" type="xml">
+                <tree string="Disco Invoicing">
+                    <field name="partner_id" />
+                    <field name="billing_cycle_id" />
+                    <field name="month" />
+                    <field name="date" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="ebs_ocma_disco_invoicing_view_form" model="ir.ui.view">
+            <field name="name">ebs_ocma.disco.invoicing.view.form</field>
+            <field name="model">ebs_ocma.disco.invoicing</field>
+            <field name="arch" type="xml">
+                <form string="Disco Invoicing">
+                    <sheet>
+                        <!-- <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div> -->
+                        <group>
+                            <group>
+                                <field name="partner_id" />
+                                <field name="billing_cycle_id" />
+                                <field name="month" />
+                                <field name="date" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="capacity_sharings" string="Capacity &amp; Energy Summary">
+                                <group>
+                                    <group>
+                                        <field name="contract_share" />
+                                        <field name="share_actual_bill" />
+                                        <field name="total_available_capacity" />
+                                        <field name="total_disco_share" />
+                                        <field name="share_available" />
+                                    </group>
+                                    <group>
+                                        <field name="total_energy_sent_out" />
+                                        <field name="total_disco_share_enegry_sent_out" />
+                                        <field name="share_energy_sent_out" />
+                                        <field name="aggregate_supplementary_charge" />
+                                        <field name="quateryly_index" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="disco_invoicing_action" model="ir.actions.act_window">
+            <field name="name">Disco Invoicing</field>
+            <field name="res_model">ebs_ocma.disco.invoicing</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_no_content_create">click to create a new disco invoicing</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

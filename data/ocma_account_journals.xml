@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="genco_invoice_journal" model="account.journal">
+            <field name="name">Genco Bills</field>
+            <field name="code">GENCO</field>
+            <field name="type">purchase</field>
+            <field name="refund_sequence" eval="True"/>
+        </record>
+
+        <record id="disco_invoice_journal" model="account.journal">
+            <field name="name">Disco Invoices</field>
+            <field name="code">NBET/OCMA/</field>
+            <field name="type">sale</field>
+            <field name="refund_sequence" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

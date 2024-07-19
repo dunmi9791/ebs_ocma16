@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- GENCOS -->
+        <record id="demo_genco_afam" model="res.partner">
+            <field name="name">AFAM IV</field>
+            <field name="rate">7872.40423669093</field>
+            <field name="rate_gas_price">15708.7006163047</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_alaoji" model="res.partner">
+            <field name="name">ALAOJI NIPP</field>
+            <field name="rate_gas_price">14057.5526854167</field>
+            <field name="rate">4303</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_ascon" model="res.partner">
+            <field name="name">ASCON</field>
+            <field name="rate">4303</field>
+            <field name="rate_gas_price">14057.5526854167</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_azura" model="res.partner">
+            <field name="name">AZURA POWER</field>
+            <field name="rate">0</field>
+            <field name="rate_gas_price">21348.4547158677</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_delta" model="res.partner">
+            <field name="name">DELTA</field>
+            <field name="rate">7872.40423669093</field>
+            <field name="rate_gas_price">15708.7006163047</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_egbin" model="res.partner">
+            <field name="name">EGBIN</field>
+            <field name="rate">7872.40423669093</field>
+            <field name="rate_gas_price">15708.7006163047</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_gbarain" model="res.partner">
+            <field name="name">GBARAIN NIPP</field>
+            <field name="rate">4303</field>
+            <field name="rate_gas_price">11187.7621354167</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_geregu" model="res.partner">
+            <field name="name">GEREGU</field>
+            <field name="rate">7872.40423669093</field>
+            <field name="rate_gas_price">11187.7621354167</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_geregu_power_nipp" model="res.partner">
+            <field name="name">GEREGU (POWER) NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_ibom" model="res.partner">
+            <field name="name">IBOM</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_ihovbor" model="res.partner">
+            <field name="name">IHOVBOR NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_jebba" model="res.partner">
+            <field name="name">JEBBA</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_kainji" model="res.partner">
+            <field name="name">KAINJI</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_odukpani" model="res.partner">
+            <field name="name">ODUKPANI (CALABAR) NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_okpai" model="res.partner">
+            <field name="name">OKPAI (AGIP)</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_olorunsogo" model="res.partner">
+            <field name="name">OLORUNSOGO </field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_olorunsogo_nipp" model="res.partner">
+            <field name="name">OLORUNSOGO (POWER)  NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_omoku" model="res.partner">
+            <field name="name">OMOKU</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_omotosho_electric" model="res.partner">
+            <field name="name">OMOTOSHO ELECTRIC</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_omotosho_nipp" model="res.partner">
+            <field name="name">OMOTOSHO GEN CO. NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_rivers_ipp" model="res.partner">
+            <field name="name">RIVERS IPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_sapele_nipp" model="res.partner">
+            <field name="name">SAPELE (OGORODE) NIPP</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_sapele_steam" model="res.partner">
+            <field name="name">SAPELE (POWER) STEAM</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_shell_afam" model="res.partner">
+            <field name="name">SHELL AFAM (VI)</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_shiroro" model="res.partner">
+            <field name="name">SHIRORO</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <record id="demo_genco_trans_amadi" model="res.partner">
+            <field name="name">TRANS AMADI</field>
+            <field name="rate">4303</field>
+            <field name="rate_gas_price">14057.5526854167</field>
+            <field name="is_genco">1</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
+        <!-- DISCOS -->
+        <record id="demo_disco_aedc" model="res.partner">
+            <field name="name">Abuja Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_ikedc" model="res.partner">
+            <field name="name">Ikeja Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_bedc" model="res.partner">
+            <field name="name">Benin Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_ibedc" model="res.partner">
+            <field name="name">Ibadan Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_eko" model="res.partner">
+            <field name="name">Eko Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_enugu" model="res.partner">
+            <field name="name">Enugu Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_jos" model="res.partner">
+            <field name="name">Jos Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_yola" model="res.partner">
+            <field name="name">Yola Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_ajaokuta" model="res.partner">
+            <field name="name">Ajaokuta Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_kaduna" model="res.partner">
+            <field name="name">Kaduna Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_kano" model="res.partner">
+            <field name="name">Kano Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <record id="demo_disco_ph" model="res.partner">
+            <field name="name">Port Harcourt Electricity Distribution Company</field>
+            <field name="rate">0.0</field>
+            <field name="rate_gas_price">0.0</field>
+            <field name="is_disco">1</field>
+        </record>
+
+        <!-- Myto Rates -->
+        <record id="myto_rate_1" model="ebs_ocma.myto.rate">
+            <field name="name">Rate 1</field>
+        </record>
+
+        <record id="myto_rate_2" model="ebs_ocma.myto.rate">
+            <field name="name">Rate 2</field>
+        </record>
+
+    </data>
+</odoo>

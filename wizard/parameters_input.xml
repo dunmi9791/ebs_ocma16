@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ebs_ocma_genco_params_wizard_form">
+            <field name="name">ebs_ocma.genco.params.wizard.form</field>
+            <field name="model">ebs_ocma.genco.params</field>
+            <field name="arch" type="xml">
+                <form string="Genco Parameters Input">
+                    <group>
+                        <field name="billing_cycle_id"/>
+                    </group>
+
+
+                    <field name="genco_parameters_line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="partner_id" />
+
+                            <field name="capacity_sent_out" sum="Total Capacity" width="0.9" optional="show"/>
+                            <field name="energy" sum="Total Energy" width="0.9" optional="show"/>
+                            <field name="capacity_import" sum="Total Capacity Import" width="0.5" optional="show"/>
+                            <field name="energy_import" sum="Total Energy Import" width="0.5" optional="show"/>
+
+                        </tree>
+                    </field>
+        <footer>
+                        <button string="input" confirm="Are you sure? Do not forget to cross check" name="input_genco_params" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_ebs_ocma_genco_params_wizard" model="ir.actions.act_window">
+            <field name="name">Genco Parameters input</field>
+            <field name="res_model">ebs_ocma.genco.params</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <record model="ir.ui.view" id="ebs_ocma_disco_params_wizard_form">
+            <field name="name">ebs_ocma.disco.params.wizard.form</field>
+            <field name="model">ebs_ocma.disco.params</field>
+            <field name="arch" type="xml">
+                <form string="Disco Parameters Input">
+                    <group>
+                        <field name="billing_cycle_id"/>
+                    </group>
+
+
+                    <field name="disco_parameters_line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="partner_id" />
+
+                            <field name="capacity_delivered" sum="Total Capacity" width="0.9" optional="show"/>
+                            <field name="energy_delivered" sum="Total Energy" width="0.9" optional="show"/>
+
+                        </tree>
+                    </field>
+        <footer>
+                        <button string="input" confirm="Are you sure? Do not forget to cross check" name="input_disco_params" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_ebs_ocma_disco_params_wizard" model="ir.actions.act_window">
+            <field name="name">Disco Parameters input</field>
+            <field name="res_model">ebs_ocma.disco.params</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

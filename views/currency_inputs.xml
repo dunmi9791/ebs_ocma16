@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="currency_input_view_tree" model="ir.ui.view">
+            <field name="name">currency_input_view_tree</field>
+            <field name="model">cbn.dollar.rate</field>
+            <field name="arch" type="xml">
+                <tree string="currency_input_tree">
+                    <field name="rate_date"/>
+                    <field name="currency"/>
+                    <field name="rate_year"/>
+                    <field name="rate_month"/>
+                    <field name="buying_rate"/>
+                    <field name="central_rate"/>
+                    <field name="selling_rate"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ebs_ocma_mro_application_wizard_form">
+            <field name="name">ebs_ocma.mro.application.wizard.form</field>
+            <field name="model">ebs_ocma.mro.application</field>
+            <field name="arch" type="xml">
+                <form string="MRO Application">
+                    <group col="4">
+                        <field name="billing_cycle_id" readonly="1"/>
+                        <field name="mro_id" string="MRO Version"/>
+                    </group>
+                    <field name="mro_line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="partner_id" />
+                            <field name="invoice_value" />
+                            <field name="percent_mro" />
+                            <field name="invoice_id" invisible="1"/>
+                            <field name="mro_id" context="{'default_mro_id': active_id}" invisible="1" />
+                        </tree>
+                    </field>
+                    <footer>
+                        <button string="Apply" confirm="Are you sure? Do not forget to cross check" name="apply_mro" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ebs_ocma_mro_application_transfer_wizard" model="ir.actions.act_window">
+            <field name="name">MRO Application</field>
+            <field name="res_model">ebs_ocma.mro.application</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

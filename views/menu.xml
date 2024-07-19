@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="OCMA" id="ocma_root_menu" web_icon="ebs_ocma,static/src/img/icon.png"/>
+        <menuitem name="DISCOs " id="ocma_discos_menu" parent="ocma_root_menu" sequence="3" />
+        <menuitem name="DISCOs" id="ocma_disco_menu" parent="ocma_discos_menu" sequence="1" action="action_disco_customer_form"/>
+        <menuitem name="MRO" id="ocma_disco_mro" parent="ocma_discos_menu" sequence="2" action="action_ebs_ocma_disco_mro"/>
+        <!-- <menuitem name="Invoicing" id="disco_invoice_menu" sequence="2" parent="ocma_discos_menu" action="disco_invoice_action" /> -->
+        <!-- <menuitem name="DISCO Invoicing" id="disco_invoicing_menu" parent="ocma_discos_menu" sequence="7" action="account.action_move_out_invoice_type"/> -->
+        <menuitem name="Billing Cycle " id="ocma_circles_menu" parent="ocma_root_menu" sequence="2" />
+        <menuitem name="Billing Cycle" id="circle_billing_menu" parent="ocma_circles_menu" sequence="1" action="action_billing_cycle"/>
+        <menuitem name="GENCOs " id="ocma_gencos_menu" parent="ocma_root_menu" sequence="4" />
+        <menuitem name="GENCOs" id="ocma_genco_menu" parent="ocma_gencos_menu" sequence="1" action="action_genco_customer_form"/>
+        <!-- <menuitem name="Invoicing" id="genco_invoice_menu" sequence="2" parent="ocma_gencos_menu" action="genco_invoice_action" /> -->
+        <menuitem name="Overview" parent="ocma_root_menu" action="ks_dashboard_ninja.board_dashboard_action_window" sequence="1" id="menu_dashboard"/>
+        <!-- <menuitem name="Overview" parent="ocma_root_menu" action="ebs_ocma.ebs_ocma_dashboard" sequence="1" id="menu_dashboard"/> -->
+
+        <!-- Myto Rate Menu -->
+        <menuitem
+            id="myto_rate_menu"
+            name="Rates"
+            sequence="5"
+            parent="ocma_root_menu"/>
+        <menuitem
+            id="analytics_rate_menu"
+            name="Analytics"
+            sequence="6"
+            parent="ocma_root_menu"/>
+                <menuitem
+            id="analytics_rate_action_menu"
+            name="Genco Parameters"
+            action="analytics_rate_view_action"
+            parent="analytics_rate_menu"
+            sequence="1"/>
+
+<!--        <menuitem-->
+<!--            id="myto_rate_action_menu"-->
+<!--            name="Myto Rates"-->
+<!--            action="myto_rate_view_action"-->
+<!--            parent="myto_rate_menu"-->
+<!--            sequence="1"/>-->
+<!--        <menuitem-->
+<!--            id="myto_rate_category_action_menu"-->
+<!--            name="Rates Category"-->
+<!--            action="myto_rate_category_view_action"-->
+<!--            parent="myto_rate_menu"-->
+<!--            sequence="3"/>-->
+        <menuitem
+            id="hydro_rate_action_menu"
+            name="Myto Rates"
+            action="hydro_rate_view_action"
+            parent="myto_rate_menu"
+            sequence="2"/>
+         <menuitem
+            id="indices_inputs_action_menu"
+            name="Indices and Inputs"
+            parent="myto_rate_menu"
+            sequence="5"/>
+        <menuitem
+            id="uscpi_inputs_action_menu"
+            name="US CPI"
+            action="us_cpi_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="1"/>
+        <menuitem
+            id="fx_cbn_inputs_action_menu"
+            name="FX (CBN Rate)"
+            action="fx_cbn_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="8"/>
+        <menuitem
+            id="ncpi_inputs_action_menu"
+            name="NCPI"
+            action="ncpi_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="3"/>
+         <menuitem
+            id="usppi_inputs_action_menu"
+            name="USPPI"
+            action="usppi_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="4"/>
+        <menuitem
+            id="nigerian_cpi_inputs_action_menu"
+            name="Nigerian CPI"
+            action="nigerian_cpi_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="5"/>
+        <menuitem
+            id="fx_cbn_selling_inputs_action_menu"
+            name="Fx (CBN Selling Rate)"
+            action="fx_cbn_selling_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="6"/>
+        <menuitem
+            id="fx_cbn_buying_inputs_action_menu"
+            name="Fx (CBN Buying Rate)"
+            action="fx_cbn_buying_view_action"
+            parent="indices_inputs_action_menu"
+            sequence="7"/>
+        <menuitem
+            id="fx_cbn_rates_inputs_action_menu"
+            name="Fx CBN Rates"
+            action="action_cbn_rates"
+            parent="indices_inputs_action_menu"
+            sequence="2"/>
+
+
+
+    </data>
+</odoo>

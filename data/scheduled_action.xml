@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_import_csv" model="ir.cron">
+        <field name="name">ImportCSV</field>
+        <field name="model_id" ref="model_cbn_dollar_rate" />
+        <field name="state">code</field>
+        <field name="code">model.scheduled_import_csv()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+
+    </data>
+</odoo>

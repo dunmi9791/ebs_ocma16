@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_res_partner_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <!-- <xpath expr="//page[@name='sales_purchases']/group" position="inside">
+                    <group string="Category" name="disco_category" priority="2">
+                        <field name="disco_category"/>
+                        <field name="disco_short_code"/>
+                    </group>
+                    <group string="Contract Capacity Share" name="contract_capacity_share" priority="3">
+                        <field name="contract_capacity_share"/>
+                    </group>
+                    <group string="Rates" name="rates" priority="4">
+                        <field name="rate"/>
+                        <field name="rate_gas_price"/>
+                    </group>
+                     <group string="MRO" name="mro" priority="4">
+                        <field name="current_mro"/>
+                    </group> 
+                </xpath> -->
+                
+                <page name="sales_purchases" position="after">
+                    <page string="OCMA" name="ocma" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}">
+                        <group string="Category" name="disco_category" priority="2">
+                            <field name="disco_category"/>
+                            <field name="disco_short_code"/>
+                        </group>
+                        <group string="Contract Capacity Share" name="contract_capacity_share" priority="3">
+                            <field name="contract_capacity_share"/>
+                        </group>
+                        <group string="Rates" name="rates" priority="4">
+                            <field name="myto_rate"/>
+                            <field name="rate_category"/>
+                            <field name="rate"/>
+                            <field name="rate_gas_price"/>
+                            <field name="is_disco"/>
+                            <field name="is_genco"/>
+                        </group>
+                    </page>
+                </page>
+
+            </field>
+        </record>
+    </data>
+</odoo>

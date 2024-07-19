@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ebs_ocma_disco_invoice_view_tree" model="ir.ui.view">
+            <field name="name">ebs.ocma.disco.invoice.view.tree</field>
+            <field name="model">ebs_ocma.disco.invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Disco Invoice">
+                    <field name="name" />
+                    <field name="billing_cycle_id" />
+                    <field name="month" />
+                    <field name="year" />
+                    <field name="days_in_month" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="ebs_ocma_disco_invoice_view_form" model="ir.ui.view">
+            <field name="name">ebs_ocma.disco.invoice.view.form</field>
+            <field name="model">ebs_ocma.disco.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Disco Invoice">
+                    <header>
+                        <button string="Confirm" name="action_confirm" type="object" states="draft" class="oe_highlight"/>
+                        <button string="Approve" name="action_approve" type="object" states="open" class="oe_highlight"/>
+                        <button string="Generate Disco Invoice" name="generate_disco_invoice" type="object" states="approve" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!-- <button name="action_view_disco_invoicing" type="object" class="oe_stat_button" icon="fa-pencil">
+                                <field name="disco_invoicing_count" string="Disco Invoice Parameters" widget="statinfo"/>
+                            </button> -->
+                            <!-- <button name="action_view_account_moves" type="object" class="oe_stat_button" icon="fa-pencil">
+                                <field name="moves_count" string="Journal Entries" widget="statinfo"/>
+                            </button> -->
+                            <button name="action_view_disco_invoices" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                                <field name="disco_invoices_count" string="Disco Invoices" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="billing_cycle_id" />
+                                <field name="month" />
+                                <field name="year" />
+                            </group>
+                            <group>
+                                <field name="days_in_month" />
+                                <field name="date" />
+                                <field name="ref_no" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="cbn_average" />
+                                <field name="nbet_dist_rate" />
+                                <field name="nbet_dist_azura" />
+                                <field name="agip_quaterly_index" />
+                                <field name="azura_fx_date" />
+                                <field name="azura_fx_value" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="parameters" string="Parameters">
+                                <field name="disco_parameter_ids" nolabel="1">
+                                    <form>
+                                        <field name="disco_invoice_share_ids" nolabel="1">
+                                            <!-- <field name="actual_share" /> -->
+                                        </field>
+
+                                            <!-- <field name="contract_share" /> -->
+                                            <!-- <field name="actual_share" /> -->
+
+                                            <!-- <field name="disco_invoice_share_line_ids" nolabel="1">
+                                                <field name="partner_id" />
+                                                <field name="share_capacity_mw_mth" />
+                                                <field name="share_capacity_mw_hr" />
+                                            </field> -->
+
+                                        <!-- </field> -->
+                                    </form>
+                                    <tree editable="bottom" limit="10">
+                                        <field name="partner_id" />
+                                        <field name="name" />
+                                        <field name="capacity_delivered" sum="Total Capacity Delivered" optional="show"/>
+                                        <field name="energy_delivered" sum="Total Energy Delivered" optional="show"/>
+                                        <field name="capacity_shared" sum="Total Energy Delivered" optional="show"/>
+                                        <field name="energy_shared" sum="Total Energy Shared" optional="show"/>
+                                        <field name="percentage_total" sum="Total Percentage Total" optional="show"/>
+                                        <field name="portion_capacity" sum="Total Portion Capacity" optional="show"/>
+                                        <field name="portion_energy" sum="Total Portion Energy" optional="show"/>
+                                        <field name="invoice_value" sum="Total Invoice Value"  optional="show"/>
+                                        <field name="invoice_id" context="{'default_invoice_id': active_id}" invisible="1" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="ebs_ocma_disco_inovice_view_search" model="ir.ui.view">
+            <field name="name">ebs.ocma.disco.invoice.view.search</field>
+            <field name="model">ebs_ocma.disco.invoice</field>
+            <field name="arch" type="xml">
+                <search string="Disco Invoice">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+
+        <record id="disco_invoice_action" model="ir.actions.act_window">
+            <field name="name">Disco Invoice</field>
+            <field name="res_model">ebs_ocma.disco.invoice</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_no_content_create">click to create a new disco invoice</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

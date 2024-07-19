@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+<!--        <record model="ir.ui.view" id="ebs_ocma_genco_invoice_transfer_wizard_form">-->
+<!--            <field name="name">ebs_ocma.genco.invoice.transfer.wizard.form</field>-->
+<!--            <field name="model">ebs_ocma.genco.invoice.transfer</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Genco Bill Verification">-->
+<!--                    <group>-->
+<!--                        <field name="billing_cycle_id"/>-->
+<!--                    </group>-->
+
+<!--                    <button name="select_all_nbet" type="object" string="Select All"/>-->
+
+<!--                    <separator/>-->
+
+<!--                    <field name="verification_line_ids" nolabel="1">-->
+<!--                        <tree editable="bottom">-->
+<!--                            <field name="partner_id" />-->
+
+<!--                            <field name="nbet_verified" />-->
+<!--                            <field name="nbet_capacity_payment" sum="NBET Total Capacity Payment" width="0.9" optional="show"/>-->
+<!--                            <field name="nbet_energy_payment" sum="NBET Total Energy Payment" width="0.5" optional="show"/>-->
+<!--                            <field name="nbet_total_payment" sum="NBET Total Payment" width="0.5" optional="show"/>-->
+
+<!--                            <field name="space"/>-->
+
+<!--                            <field name="genco_verified" optional="show"/>-->
+<!--                            <field name="genco_capacity_payment" sum="Genco Total Capacity Payment" width="0.5" optional="show"/>-->
+<!--                            <field name="genco_energy_payment" sum="Genco Total Energy Payment" width="0.5" optional="show"/>-->
+<!--                            <field name="genco_total_payment" sum="Genco Total Payment" width="0.5" optional="show"/>-->
+<!--                            <field name="space2"/>-->
+<!--                            <field name="difference" optional="show"/>-->
+
+<!--                            <field name="remarks" optional="show"/>-->
+<!--                            -->
+<!--                            <field name="verification_id" context="{'default_verification_id': active_id}" invisible="1" />-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                    &lt;!&ndash; <notebook>-->
+<!--                        <page name="genco_parameters" string="Genco Parameters">-->
+<!--                            <field name="bc_genco_parameter_ids" nolabel="1">-->
+<!--                                <tree editable="bottom">-->
+<!--                                    <field name="verified" />-->
+<!--                                    <field name="partner_id" />-->
+<!--                                    <field name="name" />-->
+<!--                                    <field name="capacity_sent_out_mw" sum="Total Capacity Sent Out(mw)" width="0.9" optional="show"/>-->
+<!--                                    <field name="energy_sent_out_kwh" sum="Total Energy Sent Out(Kwh)" width="0.5" optional="show"/>-->
+<!--                                    <field name="capacity_import" sum="Total capacity Import" width="0.5" optional="show"/>-->
+<!--                                    <field name="energy_import" sum="Total Energy import" width="0.5" optional="show"/>-->
+<!--                                    <field name="invoiced_capacity" sum="Total Invoiced Capacity" width="0.5" optional="show"/>-->
+<!--                                    <field name="invoiced_energy" sum="Total Invoiced Energy" width="0.5" optional="show"/>-->
+<!--                                    <field name="capacity" sum="Total Capacity" width="0.5" optional="show"/>-->
+<!--                                    <field name="energy_sent_out_mwh" sum="Total Energy Sent Out(Mwh)" width="0.5" optional="show"/>-->
+<!--                                    <field name="capacity_payment" sum="Total Capacity Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="energy_payment" sum="Total Energy Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="total_payment" sum="Total Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="billing_cycle_id" context="{'default_billing_cycle_id': active_id}" invisible="1" />-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                        <page name="parameters" string="Genco Receieved">-->
+<!--                            <field name="nbet_genco_parameter_ids" nolabel="1">-->
+<!--                                <tree editable="bottom" limit="10">-->
+<!--                                    <field name="verified" />-->
+<!--                                    <field name="partner_id" />-->
+<!--                                    <field name="name" />-->
+<!--                                    <field name="capacity_payment" sum="Total Capacity Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="energy_payment" sum="Total Energy Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="total_payment" sum="Total Payment" width="0.5" optional="show"/>-->
+<!--                                    <field name="billing_cycle_id" context="{'default_billing_cycle_id': active_id}" invisible="1" />-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                    </notebook> &ndash;&gt;-->
+<!--                    <footer>-->
+<!--                        <button string="Verify" confirm="Are you sure? Do not forget to cross check" name="verify_invoice" type="object" class="btn-primary"/>-->
+<!--                        <button string="Cancel" class="btn-default" special="cancel" />-->
+<!--                    </footer>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="action_ebs_ocma_genco_invoice_transfer_wizard" model="ir.actions.act_window">
+            <field name="name">Genco Invoice Generation</field>
+            <field name="res_model">ebs_ocma.genco.invoice.transfer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

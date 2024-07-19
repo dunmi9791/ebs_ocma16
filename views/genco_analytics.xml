@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="genco_analytics_view_pivot" model="ir.ui.view">
+            <field name="name">genco_analytics_view_pivot</field>
+            <field name="model">ebs_ocma.genco.invoice.billing_cycle.parameter</field>
+            <field name="arch" type="xml">
+                <pivot string="genco_analytics_tree">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="capacity"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>

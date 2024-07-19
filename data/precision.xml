@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record forcecreate="True" id="decimal_ocma" model="decimal.precision">
+            <field name="name">Ocma</field>
+            <field name="digits">4</field>
+        </record>
+
+    </data>
+</odoo>

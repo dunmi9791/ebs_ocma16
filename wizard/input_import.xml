@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model = 'ir.ui.view' id = "input_line_import_wizard_id">
+            <field name="name">import.input.line.wizard</field>
+            <field name="model">import.input.line.wizard</field>
+            <field name = 'arch' type="xml">
+                <form string ="Import Budget Line">
+                    <separator string="This wizard will import budget lines form selected excel file. Please make sure you have selected .xls/xlsx excel files..."/>
+                    <group>
+                        <div>
+                            <field name="billing_cycle_id"/>
+                            <field  name="files" class="oe_inline" filename="datas_fname" required="True"/>
+                            <field name="datas_fname" class="oe_inline" invisible="1" readonly="1"/>
+                        </div>
+                   </group>
+                   <footer>
+                        <button string="Import input Lines" name="input_genco_file" type="object" class="oe_highlight"/>
+                        or
+                        <button string="_Cancel" class="btn-default" special="cancel" />
+                   </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model = "ir.actions.act_window" id = "input_line_import_wizard_action">
+            <field name="name">Import Input Lines</field>
+           <field name="res_model">import.input.line.wizard</field>
+           <field name="view_mode">form</field>
+           <field name="target">new</field>
+        </record>
+        <record model = 'ir.ui.view' id = "disco_line_import_wizard_id">
+            <field name="name">import.disco.line.wizard</field>
+            <field name="model">import.disco.line.wizard</field>
+            <field name = 'arch' type="xml">
+                <form string ="Import Disco Line">
+                    <separator string="This wizard will import Disco lines form selected excel file. Please make sure you have selected .xls/xlsx excel files..."/>
+                    <group>
+                        <div>
+                            <field name="billing_cycle_id"/>
+                            <field  name="files" class="oe_inline" filename="datas_fname" required="True"/>
+                            <field name="datas_fname" class="oe_inline" invisible="1" readonly="1"/>
+                        </div>
+                   </group>
+                   <footer>
+                        <button string="Import input Lines" name="input_disco_file" type="object" class="oe_highlight"/>
+                        or
+                        <button string="_Cancel" class="btn-default" special="cancel" />
+                   </footer>
+                </form>
+            </field>
+        </record>
+        <record model = "ir.actions.act_window" id = "disco_line_import_wizard_action">
+            <field name="name">Import Disco Lines</field>
+           <field name="res_model">import.disco.line.wizard</field>
+           <field name="view_mode">form</field>
+           <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

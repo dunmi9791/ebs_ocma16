@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="action_billing_cycle">
+      <field name="name">Billing Cycle</field>
+      <field name="res_model">billing.cycle</field>
+      <field name="view_mode">tree,kanban,form,pivot</field>
+    </record>
+
+    <record id="action_genco_customer_form" model="ir.actions.act_window">
+      <field name="name">Gencos</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <!-- <field name="domain">[('is_genco','=',True),  ('supplier', '=', True)]</field> -->
+      <field name="domain">[('is_genco','=',True)]</field>
+      <field name="context">{'default_is_genco': True, 'default_is_company': True, 'default_supplier': True, 'default_customer': False}</field>
+      <field name="filter" eval="True"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+                Create a new customer in your address book
+        </p>
+      </field>
+    </record>
+
+    <record id="action_disco_customer_form" model="ir.actions.act_window">
+          <field name="name">Discos</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">res.partner</field>
+          <field name="view_mode">kanban,tree,form</field>
+          <!-- <field name="domain">[('is_disco','=',True),  ('customer', '=', True)]</field> -->
+          <field name="domain">[('is_disco','=',True)]</field>
+          <field name="context">{'default_is_disco': True, 'default_is_company': True, 'default_supplier': False, 'default_customer': True}</field>
+          <field name="filter" eval="True"/>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Create a new customer in your address book
+            </p>
+          </field>
+      </record>
+
+    <record id="ebs_ocma_dashboard" model="ir.actions.act_window">
+      <field name="name">Dashboard</field>
+      <field name="res_model">board.board</field>
+      <field name="view_mode">form</field>
+      <field name="usage">menu</field>
+      <field name="view_id" ref="dashboard_form_view"/>
+    </record>
+
+    <record id="myto_rate_view_action" model="ir.actions.act_window">
+      <field name="name">Rate</field>
+      <field name="res_model">ebs_ocma.myto.rate</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new rate</p>
+      </field>
+    </record>
+    <record id="hydro_rate_view_action" model="ir.actions.act_window">
+      <field name="name">Rate</field>
+      <field name="res_model">ocma.myto.rate</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new rate</p>
+      </field>
+    </record>
+
+    <record id="myto_rate_category_view_action" model="ir.actions.act_window">
+      <field name="name">Rate Category</field>
+      <field name="res_model">ebs_ocma.myto.rate.cateogry</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="analytics_rate_view_action" model="ir.actions.act_window">
+      <field name="name">Genco Parameters Analytics</field>
+      <field name="res_model">ebs_ocma.genco.invoice.billing_cycle.parameter</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="us_cpi_view_action" model="ir.actions.act_window">
+      <field name="name">US CPI</field>
+      <field name="res_model">uscpi.indices</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="fx_cbn_view_action" model="ir.actions.act_window">
+      <field name="name">FX CBN Rate</field>
+      <field name="res_model">fx.cbn</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="ncpi_view_action" model="ir.actions.act_window">
+      <field name="name">NCPI</field>
+      <field name="res_model">ncpi.indices</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="usppi_view_action" model="ir.actions.act_window">
+      <field name="name">USPPI</field>
+      <field name="res_model">usppi.indices</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="nigerian_cpi_view_action" model="ir.actions.act_window">
+      <field name="name">NigerianCPI</field>
+      <field name="res_model">nigeriancpi.indices</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="fx_cbn_selling_view_action" model="ir.actions.act_window">
+      <field name="name">FX CBN Selling Rate</field>
+      <field name="res_model">fx.cbn.selling</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="fx_cbn_buying_view_action" model="ir.actions.act_window">
+      <field name="name">FX CBN Buying Rate</field>
+      <field name="res_model">fx.cbn.buying</field>
+      <field name="view_mode">tree,form,pivot,graph</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new Category</p>
+      </field>
+    </record>
+    <record id="action_disco_parameters" model="ir.actions.act_window">
+    <field name="name">disco Parameters</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">ebs_ocma.disco.invoice.billing_cycle.parameter</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_disco_parameters_form"/>
+<!--    <field name="search_view_id" ref="view_order_filter"/>-->
+    <field name="help" type="html">
+        <p class="o_view_nocontent_empty_folder">
+            Create a new disco parameter
+        </p>
+    </field>
+</record>
+    <record id="action_cbn_rates" model="ir.actions.act_window">
+      <field name="name">CBN Rates</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cbn.dollar.rate</field>
+      <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+
+  </data>
+</odoo>

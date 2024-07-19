@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="myto_rate_view_tree" model="ir.ui.view">
+            <field name="name">myto_rate.view.tree</field>
+            <field name="model">ebs_ocma.myto.rate</field>
+            <field name="arch" type="xml">
+                <tree string="Myto Rate">
+                    <field name="name" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="employee_id" />
+                    <field name="approved_by" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="myto_rate_cateogry_view_tree" model="ir.ui.view">
+            <field name="name">myto.rate.cateogry.view.tree</field>
+            <field name="model">ebs_ocma.myto.rate.cateogry</field>
+            <field name="arch" type="xml">
+                <tree string="Myto Rate Category">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="myto_rate_category_view_form" model="ir.ui.view">
+            <field name="name">myto.rate.cateogry.view.form</field>
+            <field name="model">ebs_ocma.myto.rate.cateogry</field>
+            <field name="arch" type="xml">
+                <form string="Myto Rate Category">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <field name="name"/>
+                        </div>
+                        <notebook>
+                            <page name="myto_category_line" string="Rates Category">
+                                <field name="cateogry_line_ids" nolabel="1" context="{'default_category_id': active_id}">
+                                    <tree string="Myto rate" editable="bottom">
+                                        <field name="name" required="1" />
+                                        <field name="base_myto" required="1"/>
+                                        <field name="base_tarrif" required="1"/>
+                                        <field name="category_id" context="{'default_category_id': active_id}" invisible="1" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="myto_rate_view_form" model="ir.ui.view">
+            <field name="name">myto_rate.view.form</field>
+            <field name="model">ebs_ocma.myto.rate</field>
+            <field name="arch" type="xml">
+                <form string="Myto Rate">
+                    <header>
+                        <button name="action_submit" type="object" string="Submit" class="oe_highlight" states="draft" />
+                        <button name="action_approve" type="object" string="Approve" class="oe_highlight" states="open" />
+                        <button name="action_reject" type="object" string="Reject" class="btn-danger" states="open" />
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <field name="name"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" />
+                                <field name="user_id" />
+                            </group>
+                            <group>
+                                <field name="approved_by" />
+                            </group>
+                            <group>
+                                <field name="date_start" />
+                                <field name="date_end" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="myto_line" string="Rates">
+                                <field name="line_ids" nolabel="1" context="{'default_rate_id': active_id}">
+                                    <tree string="Myto rate" editable="bottom">
+                                        <field name="partner_id" required="1" />
+                                        <field name="capacity_tarrif" required="1"/>
+                                        <field name="energy_tarrif" required="1"/>
+                                        <field name="rate_id" context="{'default_rate_id': active_id}" invisible="1" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="myto_rate_view_search" model="ir.ui.view">
+            <field name="name">myto_rate.view.search</field>
+            <field name="model">ebs_ocma.myto.rate</field>
+            <field name="arch" type="xml">
+                <search string="Myto Rate">
+                    <field name="name" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="state" />
+                </search>
+            </field>
+        </record>
+        <record id="mytos_rate_view_form" model="ir.ui.view">
+            <field name="name">mytos_rate_view_form</field>
+            <field name="model">ocma.myto.rate</field>
+            <field name="arch" type="xml">
+                <form string="mytos_rate_form">
+                    <header>
+                        <button name="action_submit" type="object" string="Submit" class="oe_highlight" states="draft" />
+                        <button name="action_approve" type="object" string="Approve" class="oe_highlight" states="open" />
+                        <button name="action_reject" type="object" string="Reject" class="btn-danger" states="open" />
+                        <button name="%(ebs_ocma.compute_rate_wizard)d" context="{'default_myto_rate_id': active_id, 'default_usd_fx_cbn': usd_fx_cbn,
+                         'default_us_cpi': us_cpi, 'default_us_ppi': us_ppi, 'default_fixed_o_m': fixed_o_m, 'default_variable_o_m': variable_o_m, 'default_capital_recovery': capital_recovery,
+                         'default_energy_charge': energy_charge, 'default_capacity_charge': capacity_charge,'default_vfcr': vfcr, 'default_vfcr_dollar': vfcr_dollar,
+                         'default_wholesale_charge': wholesale_charge, 'default_calculation_type': calculation_type, 'default_fixed_o_m_dollar': fixed_o_m_dollar,
+                         'default_variable_o_m_dollar': variable_o_m_dollar, 'default_capital_recovery_dollar': capital_recovery_dollar,
+                         'default_startup_dollar': startup_dollar, 'default_ncpi': ncpi, 'default_investment_dollar': investment_dollar, 'default_insurance_dollar': insurance_dollar,
+                         'default_general_expenses_dollar': general_expenses_dollar, 'default_fuel_dollar': fuel_dollar_input, 'default_energy_charge_dollar': energy_charge_dollar,
+                         'default_capacity_charge_dollar': capacity_charge_dollar, 'default_gas_hhv_price_dollar': gas_hhv_price_dollar, 'default_gas_hhv_price': gas_hhv_price, 'default_hhv_to_lhv': hhv_to_lhv,
+                         'default_efficiency': efficiency, 'default_capital_cost': capital_cost,  'default_tax_cost': tax_cost, 'default_trans_loss_cost': transmission_loss_cost,
+                         'default_fuel_cost_dollar': fuel_dollar, 'default_fuel_cost_naira': fuel_naira,
+                         'default_gas_fuel_price_dollar': gas_fuel_price,}" type="action" string="Compute rate" class="oe_highlight" />
+
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="calculation_type"/>
+                            </group>
+                            <group string="Base MYTO Rate">
+                                <field name="usd_fx_cbn" attrs="{'invisible': [('calculation_type', 'in', ['shell', 'agip'])]}" />
+                                <field name="us_cpi" attrs="{'invisible': [('calculation_type', 'not in', ['hydros', 'successor_gencos', 'transcorp_ugheli', 'olorunsogo', 'omotosho', 'mabon'])]}"/>
+                                <field name="ncpi" attrs="{'invisible': [('calculation_type', 'not in', ['fipl', 'fiplo', 'olorunsogo', 'omotosho', 'mabon'])]}"/>
+                                <field name="gas_fuel_price" attrs="{'invisible': [('calculation_type', 'not in', ['successor_gencos', 'transcorp_ugheli', 'fipl', 'fiplo', 'olorunsogo', 'omotosho'])]}"/>
+                                <field name="gas_hhv_price_dollar" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}"/>
+                                <field name="gas_hhv_price" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}"/>
+                                <field name="hhv_to_lhv" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}"/>
+                                <field name="efficiency" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}"/>
+                                <field name="us_ppi" attrs="{'invisible': [('calculation_type', '!=', 'shell'), ('calculation_type', '!=', 'agip')]}"/>
+                                <field name="investment_dollar" attrs="{'invisible': [('calculation_type', '!=', 'agip')]}"/>
+                                <field name="vfcr_dollar" attrs="{'invisible': [('calculation_type', '!=', 'shell')]}"/>
+                                <field name="capital_recovery_dollar" attrs="{'invisible': [('calculation_type', '!=', 'shell')]}"/>
+                                <field name="startup_dollar" attrs="{'invisible': [('calculation_type', '!=', 'shell')]}"/>
+                                <field name="fixed_o_m_dollar" attrs="{'invisible': [('calculation_type', '!=', 'shell'), ('calculation_type', '!=', 'agip')]}"/>
+                                <field name="insurance_dollar" attrs="{'invisible': [('calculation_type', '!=', 'agip')]}"/>
+                                <field name="general_expenses_dollar" attrs="{'invisible': [('calculation_type', '!=', 'agip')]}"/>
+                                <field name="fuel_dollar" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}" options="{'field_digits' : True}"/>
+                                <field name="fuel_dollar_input" attrs="{'invisible': [('calculation_type', 'not in', ['agip'])]}" options="{'field_digits' : True}"/>
+                                <field name="fuel_naira" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}" options="{'field_digits' : True}"/>
+                                <field name="capital_cost" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}" options="{'field_digits' : True}"/>
+                                <field name="tax_cost" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}" options="{'field_digits' : True}"/>
+                                <field name="transmission_loss_cost" attrs="{'invisible': [('calculation_type', 'not in', ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}" options="{'field_digits' : True}"/>
+                                <field name="variable_o_m_dollar" attrs="{'invisible': [('calculation_type', '!=', 'shell'), ('calculation_type', '!=', 'agip')]}" options="{'field_digits' : True}"/>
+                                <field name="energy_charge_dollar" attrs="{'invisible': [('calculation_type', '!=', 'agip')]}" options="{'field_digits' : True}"/>
+                                <field name="capacity_charge_dollar" attrs="{'invisible': [('calculation_type', '!=', 'agip')]}"/>
+
+                                <field name="fixed_o_m" attrs="{'invisible': [('calculation_type', 'in', ['agip', 'shell',])]}"/>
+                                <field name="variable_o_m" attrs="{'invisible': [('calculation_type', 'in', ['agip', 'shell'])]}"/>
+                                <field name="vfcr" attrs="{'invisible': [('calculation_type', 'not in', ['successor_gencos', 'transcorp_ugheli', 'fipl', 'fiplo', 'olorunsogo', 'omotosho'])]}"/>
+                                <field name="capital_recovery" attrs="{'invisible': [('calculation_type', 'not in', ['hydros', 'successor_gencos', 'transcorp_ugheli', 'fipl', 'fiplo', 'olorunsogo', 'omotosho', 'mabon'])]}"/>
+
+
+                                <field name="energy_charge" attrs="{'invisible': [('calculation_type', 'in', ['shell', 'agip'])]}"/>
+                                <field name="capacity_charge" attrs="{'invisible': [('calculation_type', 'in', ['shell', 'agip'])]}"/>
+                                <field name="wholesale_charge" attrs="{'invisible': [('calculation_type', 'not in', ['hydros', 'successor_gencos',
+                                 'transcorp_ugheli', 'fipl', 'fiplo', 'olorunsogo', 'omotosho', 'ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp'])]}"/>
+                                <field name="wholesale_charge_net" attrs="{'invisible': [('calculation_type', 'not in', ['mabon'])]}"/>
+
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page name="myto_rates_cycle" string="Historical rates">
+                            <field name="line_ids" nolabel="1" context="{'default_rate_id': active_id}">
+
+                            </field>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="hydro_rates_view_tree" model="ir.ui.view">
+            <field name="name">hydro_rates_view_tree</field>
+            <field name="model">hydro.rates</field>
+            <field name="arch" type="xml">
+                <tree string="hydro_rates_tree">
+                    <field name="billing_circle"/>
+                    <field name="usd_fx_cbn"/>
+                    <field name="us_cpi"/>
+                    <field name="new_tlf"/>
+                    <field name="energy_charge"/>
+                    <field name="energy_charge_tlf"/>
+                    <field name="capacity_charge"/>
+                    <field name="wholesale_charge"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
