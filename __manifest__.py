@@ -26,7 +26,6 @@
         'board',
         'contacts',
         'hr',
-        'ks_dashboard_ninja',
     ],
 
     'data': [

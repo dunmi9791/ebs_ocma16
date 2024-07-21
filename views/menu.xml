@@ -13,7 +13,7 @@
         <menuitem name="GENCOs " id="ocma_gencos_menu" parent="ocma_root_menu" sequence="4" />
         <menuitem name="GENCOs" id="ocma_genco_menu" parent="ocma_gencos_menu" sequence="1" action="action_genco_customer_form"/>
         <!-- <menuitem name="Invoicing" id="genco_invoice_menu" sequence="2" parent="ocma_gencos_menu" action="genco_invoice_action" /> -->
-        <menuitem name="Overview" parent="ocma_root_menu" action="ks_dashboard_ninja.board_dashboard_action_window" sequence="1" id="menu_dashboard"/>
+<!--        <menuitem name="Overview" parent="ocma_root_menu" action="ks_dashboard_ninja.board_dashboard_action_window" sequence="1" id="menu_dashboard"/>-->
         <!-- <menuitem name="Overview" parent="ocma_root_menu" action="ebs_ocma.ebs_ocma_dashboard" sequence="1" id="menu_dashboard"/> -->
 
         <!-- Myto Rate Menu -->
