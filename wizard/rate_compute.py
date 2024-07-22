@@ -36,8 +36,7 @@ class RateCoputation(models.TransientModel):
 
     usd_fx_cbn = fields.Float(string='Usd/naira fx CBN', required=False,)
     usd_fx_cbn_cur = fields.Float(string='Usd/naira fx CBN', required=False, compute='_usd_fx_cbn_cur', store=True, readonly=False)
-    usd_fx_cbn_cur_gas = fields.Float(string='Usd/naira fx Gas', required=False, compute='_usd_fx_cbn_cur_gas', store=True,
-                                  readonly=False)
+    usd_fx_cbn_cur_gas = fields.Float(string='Usd/naira fx Gas', required=False, readonly=False)
     usd_fx_cbn_sell_cur = fields.Float(string='Usd/naira fx CBN Selling', required=False, compute='_usd_fx_cbn_sell_cur')
     us_cpi = fields.Float(string='US Cpi (index)', required=False,)
     us_ppi = fields.Float(string='US ppi (index)', required=False, )
@@ -197,19 +196,19 @@ class RateCoputation(models.TransientModel):
                 else:
                     record.usd_fx_cbn_cur = 0
 
-    @api.depends('billing_circle')
-    def _usd_fx_cbn_cur_gas(self):
-        for record in self:
-            if record.calculation_type:
-                if record.calculation_type in ['hydros', 'successor_gencos', 'transcorp_ugheli', 'olorunsogo',
-                                               'omotosho', 'ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp', 'mabon']:
-                    record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
-                elif record.calculation_type in ['shell']:
-                    record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
-                elif record.calculation_type in ['agip']:
-                    record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
-                else:
-                    record.usd_fx_cbn_cur_gas = 0
+    # @api.depends('billing_circle')
+    # def _usd_fx_cbn_cur_gas(self):
+    #     for record in self:
+    #         if record.calculation_type:
+    #             if record.calculation_type in ['hydros', 'successor_gencos', 'transcorp_ugheli', 'olorunsogo',
+    #                                            'omotosho', 'ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp', 'mabon']:
+    #                 record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
+    #             elif record.calculation_type in ['shell']:
+    #                 record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
+    #             elif record.calculation_type in ['agip']:
+    #                 record.usd_fx_cbn_cur_gas = record.billing_circle.cbn_gas
+    #             else:
+    #                 record.usd_fx_cbn_cur_gas = 0
 
     @api.depends('billing_circle')
     def _usd_fx_cbn_sell_cur(self):
@@ -225,10 +224,10 @@ class RateCoputation(models.TransientModel):
         for record in self:
             if record.calculation_type:
                 if record.calculation_type in ['successor_gencos', 'transcorp_ugheli',  'olorunsogo', 'omotosho']:
-                    record.vfcr_cur = record.vfcr * (record.usd_fx_cbn_cur / record.usd_fx_cbn) * \
+                    record.vfcr_cur = record.vfcr * (record.usd_fx_cbn_cur_gas / record.usd_fx_cbn) * \
                                       (record.gas_fuel_price_dollar_cur / record.gas_fuel_price_dollar)
                 elif record.calculation_type in ['fipl', 'fiplo']:
-                    record.vfcr_cur = record.vfcr * (record.usd_fx_cbn_sell_cur / record.usd_fx_cbn) * \
+                    record.vfcr_cur = record.vfcr * (record.usd_fx_cbn_cur_gas / record.usd_fx_cbn) * \
                                       (record.gas_fuel_price_dollar_cur / record.gas_fuel_price_dollar)
                 elif record.calculation_type in ['shell']:
                     record.vfcr_cur = round(record.usd_fx_cbn_cur * record.vfcr_dollar_cur, 2)
