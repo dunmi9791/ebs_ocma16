@@ -66,6 +66,25 @@
                 <p class="o_view_nocontent_smiling_face">Let's create a new MRO</p>
             </field>
         </record>
+        <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='default_accounts']" position="inside">
+                <div class="form-group row">
+                    <label for="disco_credit_account_id" class="col-sm-2 col-form-label">Disco Credit/MRO Account</label>
+                    <div class="col-sm-10">
+                        <field name="disco_credit_account_id" options="{'no_create': True}"/>
+                    </div>
+                     <label for="disco_sales_account_id" class="col-sm-2 col-form-label">Disco Sales Account</label>
+                    <div class="col-sm-10">
+                        <field name="disco_sales_account_id" options="{'no_create': True}"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
 
     </data>
 </odoo>

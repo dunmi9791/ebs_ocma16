@@ -57,6 +57,9 @@ class MROApplication(models.TransientModel):
     def _create_disco_credit_note(self, partner_id, invoice_value):
         self.ensure_one()
         company_id = self.env.user.company_id.id
+        disco_credit_account_id = self.env.user.company_id.disco_credit_account_id.id
+        if not disco_credit_account_id:
+            raise UserError(_('Please define a Disco Credit Account in the company settings.'))
         # journal_id = (self.env['account.move'].with_context(company_id=company_id or self.env.user.company_id.id).default_get(['journal_id'])['journal_id'])
         journal_id = self.env.ref('ebs_ocma.disco_invoice_journal').id or (self.env['account.move'].with_context(company_id=company_id or self.env.user.company_id.id).default_get(['journal_id'])['journal_id'])
         if not journal_id:
@@ -89,7 +92,7 @@ class MROApplication(models.TransientModel):
                 ,(0, 0, {
                     'name': 'Total Disco Share of Energy Received (MWh)',
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_credit_account_id, # account to be set
                     'price_unit': invoice_value,
                 })],
             }
