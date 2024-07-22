@@ -37,7 +37,6 @@
                         </group>
                         <notebook>
                             <page name="mro_line" string="MRO lines">
-                                <group>
                                     <field nolabel="1" name="mro_line_ids" context="{'default_mro_id': active_id}">
                                         <tree editable="bottom">
                                             <field name="partner_id"/>
@@ -45,7 +44,7 @@
                                             <field name="mro_id" context="{'default_mro_id': active_id}" invisible="1" />
                                         </tree>
                                     </field>
-                                </group>
+
                             </page>
                         </notebook>
                     </sheet>
