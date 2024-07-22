@@ -137,15 +137,18 @@ class MytoRates(models.Model):
 
     def _fuel_cost_dollar(self):
         for record in self:
-            if record.calculation_type:
-                if record.calculation_type in ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp']:
-                    record.fuel_dollar = record.gas_hhv_price_dollar * record.hhv_to_lhv * 3.412/(record.efficiency/100)
-                elif record.calculation_type in ['agip']:
-                    record.fuel_dollar = record.fuel_dollar_input
-                elif record.calculation_type in ['mabon', 'hydros', 'successor_gencos']:
-                    record.fuel_dollar = 0
+            if record.calculation_type in ['ibom', 'nipps', 'calabar_nipp', 'gbarain_nipp']:
+                if record.efficiency > 0:
+                    record.fuel_dollar = record.gas_hhv_price_dollar * record.hhv_to_lhv * 3.412 / (
+                                record.efficiency / 100)
                 else:
-                    record.fuel_dollar = 0
+                    record.fuel_dollar = 0  # Or handle the zero efficiency case appropriately
+            elif record.calculation_type == 'agip':
+                record.fuel_dollar = record.fuel_dollar_input
+            elif record.calculation_type in ['mabon', 'hydros', 'successor_gencos']:
+                record.fuel_dollar = 0
+            else:
+                record.fuel_dollar = 0
 
     def _fuel_cost_naira(self):
         for record in self:
