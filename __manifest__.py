@@ -30,6 +30,7 @@
 
     'data': [
         'wizard/genco_invoice_verification.xml',
+        'wizard/fss_import.xml',
         'wizard/disco_mro_application_views.xml',
         'wizard/rate_compute.xml',
         'wizard/input_import.xml',

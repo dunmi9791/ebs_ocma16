@@ -176,6 +176,26 @@ class BillingCycle(models.Model):
             fss.cbn_buying_average = average_rate
             fss.buying_average_computed = True
 
+    def action_import_genco_parameters(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Import Genco Parameters',
+            'res_model': 'genco.parameter.import.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_billing_cycle_id': self.id},
+        }
+
+    def action_import_disco_parameters(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Import disco Parameters',
+            'res_model': 'disco.parameter.import.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_billing_cycle_id': self.id},
+        }
+
     def action_submit(self):
         self.state='open'
         

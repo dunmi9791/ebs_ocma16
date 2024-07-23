@@ -54,34 +54,34 @@ class MytoRates(models.Model):
     fixed_o_m = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, digits='Ocma', track_visibility='onchange')
     variable_o_m = fields.Float(
         string='Variable O & M(n/mw/hr)',
-        required=False, track_visibility='onchange')
+        required=False, track_visibility='onchange', digits='Ocma')
     fixed_o_m_dollar = fields.Float(string='Fixed O & M($/mw/hr)', required=False, digits='Ocma', track_visibility='onchange')
     variable_o_m_dollar = fields.Float(string='Variable O & M($/mw/hr)', required=False, digits='Ocma', track_visibility='onchange')
 
-    capital_recovery = fields.Float(string='Capital recovery(n/mw/hr)', required=False, track_visibility='onchange')
-    capital_recovery_dollar = fields.Float(string='Capital recovery($/mw/hr)', required=False, track_visibility='onchange')
-    energy_charge = fields.Float(string='Energy charge(n/mw/hr)', required=False, compute="_energy_charge", track_visibility='onchange')
-    capacity_charge = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute="_capacity_charge", track_visibility='onchange')
+    capital_recovery = fields.Float(string='Capital recovery(n/mw/hr)', required=False, track_visibility='onchange', digits='Ocma')
+    capital_recovery_dollar = fields.Float(string='Capital recovery($/mw/hr)', required=False, track_visibility='onchange', digits='Ocma')
+    energy_charge = fields.Float(string='Energy charge(n/mw/hr)', required=False, compute="_energy_charge", track_visibility='onchange', digits='Ocma')
+    capacity_charge = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute="_capacity_charge", track_visibility='onchange', digits='Ocma')
     energy_charge_dollar = fields.Float(string='Energy charge($/mw/hr)', required=False, digits='Ocma',
                                         compute="_energy_charge_dollar", track_visibility='onchange')
     capacity_charge_dollar = fields.Float(string='Capacity charge($/mw/hr)', required=False,
-                                          compute="_capacity_charge_dollar")
-    wholesale_charge = fields.Float(string='Wholesale charge(n/mw/hr)', required=False, compute="_wholesale_charge")
+                                          compute="_capacity_charge_dollar", track_visibility='onchange', digits='Ocma')
+    wholesale_charge = fields.Float(string='Wholesale charge(n/mw/hr)', required=False, compute="_wholesale_charge", track_visibility='onchange', digits='Ocma')
     billing_circle = fields.Many2one(
         comodel_name='billing.cycle',
         string='Billing cycle',
         required=False)
-    gas_fuel_price = fields.Float(string='Gas Fuel Price(N/mmbtu)', required=False, )
-    gas_fuel_price_dollar = fields.Float(string='Gas Fuel Price($/mmbtu)', required=False)
+    gas_fuel_price = fields.Float(string='Gas Fuel Price(N/mmbtu)', required=False, digits='Ocma')
+    gas_fuel_price_dollar = fields.Float(string='Gas Fuel Price($/mmbtu)', required=False, digits='Ocma')
     gas_hhv_price = fields.Float(string='Gas Price HHV(N/mmbtu)', required=False, compute="_gas_price_naira")
     gas_hhv_price_dollar = fields.Float(string='Gas Price HHV($/mmbtu)', required=False)
-    vfcr = fields.Float(string='VFCR(n/mwh)', required=False)
-    vfcr_dollar = fields.Float(string='VFCR($/mwh)', required=False)
+    vfcr = fields.Float(string='VFCR(n/mwh)', required=False, track_visibility='onchange', digits='Ocma')
+    vfcr_dollar = fields.Float(string='VFCR($/mwh)', required=False, track_visibility='onchange', digits='Ocma')
     startup_dollar = fields.Float(string='Startup dollar', required=False)
     startup_naira = fields.Float(string='Startup Naira', required=False, compute='_startup_naira')
 
-    ncpi = fields.Float(string='NCPI(index)', required=False)
-    us_ppi = fields.Float(string='US PPI(Index)', required=False)
+    ncpi = fields.Float(string='NCPI(index)', required=False, track_visibility='onchange',  digits='Ocma')
+    us_ppi = fields.Float(string='US PPI(Index)', required=False, digits='Ocma')
     investment_dollar = fields.Float(string='Investment($/kw/month)', required=False, digits='Ocma')
     general_expenses_dollar = fields.Float(string='General Expenses($/kw/month)', required=False, digits='Ocma')
     insurance_dollar = fields.Float(string='Insurance($/kw/month)', required=False, digits='Ocma')

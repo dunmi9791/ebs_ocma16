@@ -11,8 +11,8 @@
                         <button name="action_approve" type="object" string="Approve" class="oe_highlight" states="open" />
                         <button name="compute_cbn_selling_average" type="object" string="Compute CBN Selling Average" class="oe_highlight" attrs="{'invisible': [('selling_average_computed', '=', True)]}" />
                         <button name="compute_cbn_buying_average" type="object" string="Compute CBN Buying Average" class="oe_highlight" attrs="{'invisible': [('buying_average_computed', '=', True)]}" />
-                        <button name="%(input_line_import_wizard_action)d" type="action" string="Import Genco Lines" class="btn-primary" context="{'default_billing_cycle_id': active_id,}" attrs="{'invisible':[('state','in',['validate','cancel','done'])]}"/>
-                        <button name="%(disco_line_import_wizard_action)d" type="action" string="Import Disco Lines" class="btn-primary" context="{'default_billing_cycle_id': active_id,}" attrs="{'invisible':[('state','in',['validate','cancel','done'])]}"/>
+                        <button name="action_import_genco_parameters" type="object" string="Import Genco Lines" class="btn-primary" context="{'default_billing_cycle_id': active_id,}" attrs="{'invisible':[('state','in',['validate','cancel','done'])]}"/>
+                        <button name="action_import_disco_parameters" type="object" string="Import Disco Lines" class="btn-primary" context="{'default_billing_cycle_id': active_id,}" attrs="{'invisible':[('state','in',['validate','cancel','done'])]}"/>
 <!--                        <button name="%(action_ebs_ocma_genco_invoice_transfer_wizard)d" class="oe_highlight" string="Enter Disco Params" type="action" states="draft" />-->
 <!--                        <button name="%(action_ebs_ocma_genco_params_wizard)d" class="oe_highlight" string="Enter Genco Params" type="action" states="draft" context="{'default_billing_cycle_id': active_id,}" />-->
 <!--                        <button name="%(action_ebs_ocma_disco_params_wizard)d" class="oe_highlight" string="Enter Disco Params" type="action" states="draft" context="{'default_billing_cycle_id': active_id,}" />-->

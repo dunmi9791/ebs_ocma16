@@ -1,0 +1,76 @@
+<!-- genco_parameter_import_wizard_view.xml -->
+<odoo>
+    <record id="action_import_genco_parameters" model="ir.actions.act_window">
+        <field name="name">Import Genco Parameters</field>
+        <field name="res_model">genco.parameter.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{"default_billing_cycle_id": active_id}</field>
+    </record>
+     <record id="action_import_disco_parameters" model="ir.actions.act_window">
+        <field name="name">Import Disco Parameters</field>
+        <field name="res_model">disco.parameter.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{"default_billing_cycle_id": active_id}</field>
+    </record>
+
+    <record id="view_genco_parameter_import_wizard_form" model="ir.ui.view">
+        <field name="name">genco.parameter.import.wizard.form</field>
+        <field name="model">genco.parameter.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Genco Parameters">
+                <group>
+                    <field name="file" filename="file_name"/>
+                </group>
+                <button string="Load File" type="object" name="import_file" class="btn-primary"/>
+                <group>
+                    <field name="line_ids">
+                        <tree string="Genco Parameters">
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="capacity_sent_out_mw"/>
+                            <field name="energy_sent_out_kwh"/>
+                            <field name="capacity_import"/>
+                            <field name="energy_import"/>
+                            <field name="myto_capacity_tariff"/>
+                            <field name="myto_energy_tariff"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Confirm Import" type="object" name="confirm_import" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+     <record id="view_disco_parameter_import_wizard_form" model="ir.ui.view">
+        <field name="name">disco.parameter.import.wizard.form</field>
+        <field name="model">disco.parameter.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Disco Parameters">
+                <group>
+                    <field name="file" filename="file_name"/>
+                </group>
+                <button string="Load File" type="object" name="import_file" class="btn-primary"/>
+                <group>
+                    <field name="line_ids">
+                        <tree string="Disco Parameters">
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="capacity_delivered"/>
+                            <field name="energy_delivered"/>
+                            <field name="capacity_shared"/>
+                            <field name="energy_shared"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Confirm Import" type="object" name="confirm_import" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

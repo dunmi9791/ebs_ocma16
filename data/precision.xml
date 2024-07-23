@@ -3,7 +3,7 @@
     <data>
         <record forcecreate="True" id="decimal_ocma" model="decimal.precision">
             <field name="name">Ocma</field>
-            <field name="digits">4</field>
+            <field name="digits">15</field>
         </record>
 
     </data>

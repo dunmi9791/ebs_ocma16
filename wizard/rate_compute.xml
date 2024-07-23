@@ -5,13 +5,13 @@
             <field name="name">ebs_ocma.rate.computation.wizard.form</field>
             <field name="model">ebs_ocma.rate.computation</field>
             <field name="arch" type="xml">
-                <form string="Rate Computation">
+                <form string="Rate Computation" >
                      <header>
                         <button name="fix_om_cur" type="object" string="Compute" class="oe_highlight"  />
 <!--                         <button name="vfcr_cur" type="object" string="Compute vfcr" class="oe_highlight"  />-->
                      </header>
-                    <group col="4">
-                        <group string="Base Myto Rates">
+                    <group >
+                        <group string="Base Myto Rates" >
                             <field name="myto_rate_id" readonly="1"/>
                             <field name="calculation_type"/>
                             <field name="old_tlf"/>
@@ -51,7 +51,7 @@
                             <field name="capacity_charge" attrs="{'invisible': [('calculation_type', 'in', ['shell', 'agip', 'direct_input'])]}"/>
                             <field name="wholesale_charge" attrs="{'invisible': [('calculation_type', 'in', ['shell', 'agip', 'direct_input'])]}"/>
                         </group>
-                        <group string="Period Myto Rates">
+                        <group string="Period Myto Rates" >
                             <field name="billing_circle"/>
                             <field name="new_tlf"/>
                             <field name="capacity_inv" attrs="{'invisible': [('calculation_type', 'not in', ['agip'])]}"/>
