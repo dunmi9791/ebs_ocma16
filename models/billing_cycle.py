@@ -7,6 +7,9 @@ from datetime import date
 from datetime import datetime
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 from odoo.exceptions import UserError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 YEARS = [
     ('2000', '2000'),
@@ -177,6 +180,7 @@ class BillingCycle(models.Model):
             fss.buying_average_computed = True
 
     def action_import_genco_parameters(self):
+        _logger.info(f"Opening Genco Parameters Import Wizard for Billing Cycle ID: {self.id}")
         return {
             'type': 'ir.actions.act_window',
             'name': 'Import Genco Parameters',
@@ -187,9 +191,10 @@ class BillingCycle(models.Model):
         }
 
     def action_import_disco_parameters(self):
+        _logger.info(f"Opening Disco Parameters Import Wizard for Billing Cycle ID: {self.id}")
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Import disco Parameters',
+            'name': 'Import Disco Parameters',
             'res_model': 'disco.parameter.import.wizard',
             'view_mode': 'form',
             'target': 'new',
@@ -197,14 +202,14 @@ class BillingCycle(models.Model):
         }
 
     def action_submit(self):
-        self.state='open'
+        self.state = 'open'
         
     def action_approve(self):
         # self.state='invoice_verification'
-        self.state='gen_inv'
+        self.state = 'gen_inv'
 
     def action_verify_done(self):
-        self.state='gen_bill'
+        self.state = 'gen_bill'
 
     # def action_gen_inv(self):
     #     self.state='gen_inv'

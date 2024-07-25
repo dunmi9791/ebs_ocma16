@@ -51,7 +51,7 @@ class MytoRates(models.Model):
     old_tlf = fields.Float(
         string='Old TLF',
         required=False, track_visibility='onchange')
-    fixed_o_m = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, digits='Ocma', track_visibility='onchange')
+    fixed_o_m = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, digits='Ocma12', track_visibility='onchange', )
     variable_o_m = fields.Float(
         string='Variable O & M(n/mw/hr)',
         required=False, track_visibility='onchange', digits='Ocma')
@@ -61,12 +61,12 @@ class MytoRates(models.Model):
     capital_recovery = fields.Float(string='Capital recovery(n/mw/hr)', required=False, track_visibility='onchange', digits='Ocma')
     capital_recovery_dollar = fields.Float(string='Capital recovery($/mw/hr)', required=False, track_visibility='onchange', digits='Ocma')
     energy_charge = fields.Float(string='Energy charge(n/mw/hr)', required=False, compute="_energy_charge", track_visibility='onchange', digits='Ocma')
-    capacity_charge = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute="_capacity_charge", track_visibility='onchange', digits='Ocma')
+    capacity_charge = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute="_capacity_charge", track_visibility='onchange', digits='Ocma12')
     energy_charge_dollar = fields.Float(string='Energy charge($/mw/hr)', required=False, digits='Ocma',
                                         compute="_energy_charge_dollar", track_visibility='onchange')
     capacity_charge_dollar = fields.Float(string='Capacity charge($/mw/hr)', required=False,
                                           compute="_capacity_charge_dollar", track_visibility='onchange', digits='Ocma')
-    wholesale_charge = fields.Float(string='Wholesale charge(n/mw/hr)', required=False, compute="_wholesale_charge", track_visibility='onchange', digits='Ocma')
+    wholesale_charge = fields.Float(string='Wholesale charge(n/mw/hr)', required=False, compute="_wholesale_charge", track_visibility='onchange', digits='Ocma12')
     billing_circle = fields.Many2one(
         comodel_name='billing.cycle',
         string='Billing cycle',

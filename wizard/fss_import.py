@@ -1,9 +1,11 @@
-# models/genco_parameter_import_wizard.py
 from odoo import models, fields, api
 import base64
 import io
 import pandas as pd
 from odoo.exceptions import UserError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class GencoParameterImportWizard(models.TransientModel):
@@ -18,8 +20,10 @@ class GencoParameterImportWizard(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super(GencoParameterImportWizard, self).default_get(fields)
-        billing_cycle_id = self.env.context.get('active_id')
-        res.update({'billing_cycle_id': billing_cycle_id})
+        billing_cycle_id = self.env.context.get('default_billing_cycle_id')
+        if billing_cycle_id:
+            res.update({'billing_cycle_id': billing_cycle_id})
+        _logger.info(f"Genco wizard opened with Billing Cycle ID: {billing_cycle_id}")
         return res
 
     def import_file(self):
@@ -31,7 +35,16 @@ class GencoParameterImportWizard(models.TransientModel):
         file_like = io.BytesIO(file_data)
 
         # Read the Excel file
-        df = pd.read_excel(file_like)
+        try:
+            df = pd.read_excel(file_like)
+        except Exception as e:
+            raise UserError(f"Error reading Excel file: {e}")
+
+        required_columns = ['Name', 'Genco', 'Capacity Sent Out (MW)', 'Energy Sent Out (kWh)', 'Capacity Import (MW)',
+                            'Energy Import (kWh)', ]
+        for col in required_columns:
+            if col not in df.columns:
+                raise UserError(f"Missing required column: {col}")
 
         lines = []
         for index, row in df.iterrows():
@@ -41,16 +54,15 @@ class GencoParameterImportWizard(models.TransientModel):
             lines.append((0, 0, {
                 'name': row['Name'],
                 'partner_id': partner.id,
-                # Match the partner_id appropriately
                 'capacity_sent_out_mw': row['Capacity Sent Out (MW)'],
                 'energy_sent_out_kwh': row['Energy Sent Out (kWh)'],
                 'capacity_import': row['Capacity Import (MW)'],
                 'energy_import': row['Energy Import (kWh)'],
-                'myto_capacity_tariff': row['PPA capacity tariff'],
-                'myto_energy_tariff': row['PPA Energy tariff'],
             }))
 
         self.line_ids = lines
+
+        _logger.info(f"Imported {len(lines)} lines successfully")
 
         return {
             'type': 'ir.actions.act_window',
@@ -70,8 +82,6 @@ class GencoParameterImportWizard(models.TransientModel):
                 'energy_sent_out_kwh': line.energy_sent_out_kwh,
                 'capacity_import': line.capacity_import,
                 'energy_import': line.energy_import,
-                'myto_capacity_tariff': line.myto_capacity_tariff,
-                'myto_energy_tariff': line.myto_energy_tariff,
             })
 
         return {'type': 'ir.actions.act_window_close'}
@@ -87,8 +97,6 @@ class GencoParameterImportWizardLine(models.TransientModel):
     energy_sent_out_kwh = fields.Float(string='Energy Sent Out (kWh)')
     capacity_import = fields.Float(string='Capacity Import (MW)')
     energy_import = fields.Float(string='Energy Import (kWh)')
-    myto_capacity_tariff = fields.Float(string='PPA capacity tariff')
-    myto_energy_tariff = fields.Float(string='PPA Energy tariff')
     wizard_id = fields.Many2one('genco.parameter.import.wizard', string="Wizard")
 
 
@@ -104,8 +112,10 @@ class DiscoParameterImportWizard(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super(DiscoParameterImportWizard, self).default_get(fields)
-        billing_cycle_id = self.env.context.get('active_id')
-        res.update({'billing_cycle_id': billing_cycle_id})
+        billing_cycle_id = self.env.context.get('default_billing_cycle_id')
+        if billing_cycle_id:
+            res.update({'billing_cycle_id': billing_cycle_id})
+        _logger.info(f"Disco wizard opened with Billing Cycle ID: {billing_cycle_id}")
         return res
 
     def import_file(self):

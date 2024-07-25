@@ -44,15 +44,15 @@ class RateCoputation(models.TransientModel):
     new_tlf = fields.Float(string='New TLF', required=False, compute='_new_tlf', store=True,)
     us_cpi_cur = fields.Float(string='US Cpi (index)', required=False,)
     us_ppi_cur = fields.Float(string='US ppi (index)', required=False, )
-    fixed_o_m = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, digits='Ocma' )
+    fixed_o_m = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, digits='Ocma12' )
     fixed_o_m_noncompute = fields.Float(string='Fixed O & M(n/mw/hr)', required=False, default=397)
     fixed_o_m_cur = fields.Float(
         string='Fixed O & M(n/mw/hr)',
-        required=False, compute='_fix_om_cur', digits='Ocma')
+        required=False, compute='_fix_om_cur', digits='Ocma12')
     variable_o_m = fields.Float(string='Variable O & M(n/mw/hr)', required=False, digits='Ocma')
     variable_o_m_noncompute = fields.Float(string='Variable O & M(n/mw/hr)', required=False, default=1101)
     variable_o_m_cur = fields.Float(string='Variable O & M(n/mw/hr)', required=False, compute='_variable_om_cur', digits='Ocma')
-    fixed_o_m_dollar = fields.Float(string='Fixed O & M($/mw/hr)', required=False, digits='Ocma')
+    fixed_o_m_dollar = fields.Float(string='Fixed O & M($/mw/hr)', required=False, digits='Ocma12')
     fixed_o_m_dollar_cur = fields.Float(string='Fixed O & M($/mw/hr)', required=False, compute='_fixed_om_dollar', digits='Ocma')
     variable_o_m_dollar = fields.Float(string='Variable O & M($/mw/hr)', required=False, digits='Ocma')
     variable_o_m_dollar_cur = fields.Float(string='Variable O & M($/mw/hr)', required=False,
@@ -71,12 +71,12 @@ class RateCoputation(models.TransientModel):
     energy_charge_cur_noncompute = fields.Float(string='Energy charge(n/mw/hr)', required=False, digits='Ocma')
     energy_charge_tlf = fields.Float(string='Energy charge new TLF(n/mw/hr)', required=False, compute='_energy_charge_tlf', digits='Ocma')
     capacity_charge = fields.Float(string='Capacity charge(n/mw/hr)', required=False, )
-    capacity_charge_dollar = fields.Float(string='Capacity charge($/mw/hr)', required=False, digits='Ocma')
-    capacity_charge_dollar_cur = fields.Float(string='Capacity charge($/mw/hr)', required=False, digits='Ocma',
+    capacity_charge_dollar = fields.Float(string='Capacity charge($/mw/hr)', required=False, digits='Ocma12')
+    capacity_charge_dollar_cur = fields.Float(string='Capacity charge($/mw/hr)', required=False, digits='Ocma12',
                                               compute='_capacity_charge_dollar_cur')
     capacity_charge_dollar_dup = fields.Float(string='Capacity charge($/mw/hr)', required=False, digits='Ocma',
                                               compute='_capacity_charge_dollar_dup')
-    capacity_charge_cur = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute='_capacity_charge_cur')
+    capacity_charge_cur = fields.Float(string='Capacity charge(n/mw/hr)', required=False, compute='_capacity_charge_cur', digits='Ocma12')
     capacity_charge_cur_noncompute = fields.Float(string='Capacity charge(n/mw/hr)', required=False, )
     wholesale_charge = fields.Float(string='Wholesale charge(n/mw/hr)', required=False)
     wholesale_charge_cur = fields.Float(string='Wholesale charge(n/mw/hr)', required=False, compute='_wholesale_charge_cur')

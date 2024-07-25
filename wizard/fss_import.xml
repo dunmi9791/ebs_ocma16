@@ -1,20 +1,22 @@
-<!-- genco_parameter_import_wizard_view.xml -->
 <odoo>
+    <!-- Actions -->
     <record id="action_import_genco_parameters" model="ir.actions.act_window">
         <field name="name">Import Genco Parameters</field>
         <field name="res_model">genco.parameter.import.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="context">{"default_billing_cycle_id": active_id}</field>
+        <field name="context">{'default_billing_cycle_id': active_id}</field>
     </record>
-     <record id="action_import_disco_parameters" model="ir.actions.act_window">
+
+    <record id="action_import_disco_parameters" model="ir.actions.act_window">
         <field name="name">Import Disco Parameters</field>
         <field name="res_model">disco.parameter.import.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="context">{"default_billing_cycle_id": active_id}</field>
+        <field name="context">{'default_billing_cycle_id': active_id}</field>
     </record>
 
+    <!-- Genco Parameter Import Wizard Form View -->
     <record id="view_genco_parameter_import_wizard_form" model="ir.ui.view">
         <field name="name">genco.parameter.import.wizard.form</field>
         <field name="model">genco.parameter.import.wizard</field>
@@ -33,8 +35,6 @@
                             <field name="energy_sent_out_kwh"/>
                             <field name="capacity_import"/>
                             <field name="energy_import"/>
-                            <field name="myto_capacity_tariff"/>
-                            <field name="myto_energy_tariff"/>
                         </tree>
                     </field>
                 </group>
@@ -45,7 +45,9 @@
             </form>
         </field>
     </record>
-     <record id="view_disco_parameter_import_wizard_form" model="ir.ui.view">
+
+    <!-- Disco Parameter Import Wizard Form View -->
+    <record id="view_disco_parameter_import_wizard_form" model="ir.ui.view">
         <field name="name">disco.parameter.import.wizard.form</field>
         <field name="model">disco.parameter.import.wizard</field>
         <field name="arch" type="xml">
