@@ -622,6 +622,9 @@ class BillingCycle(models.Model):
     def _create_disco_invoice(self, partner_id, ref, origin, invoice_value):
         self.ensure_one()
         company_id = self.env.user.company_id.id
+        disco_sales_account_id = self.env.user.company_id.disco_sales_account_id.id
+        if not disco_sales_account_id:
+            raise UserError(_('Please define a Disco Sales Account in the company settings.'))
         # journal_id = (self.env['account.move'].with_context(company_id=company_id or self.env.user.company_id.id).default_get(['journal_id'])['journal_id'])
         journal_id = self.env.ref('ebs_ocma.disco_invoice_journal').id or (self.env['account.move'].with_context(company_id=company_id or self.env.user.company_id.id).default_get(['journal_id'])['journal_id'])
         if not journal_id:
@@ -654,19 +657,19 @@ class BillingCycle(models.Model):
                 ,(0, 0, {
                     'name': 'Total Disco Share of Energy Received (MWh)',
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': invoice_value,
                 })
                 ,(0, 0, {
                     'name': 'Total Energy Received by %s Disco (MWh)' % partner_id.name,
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })
                 ,(0, 0, {
                     'name': 'percentage of Total Energy Received by %s Disco' % partner_id.name,
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })
                 , (0, 0, {
@@ -676,13 +679,13 @@ class BillingCycle(models.Model):
                 ,(0, 0, {
                     'name': 'Total Disco Share of Capacity (MW)',
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })
                 ,(0, 0, {
                     'name': '%s Disco Share of Capacity (MW)' % partner_id.name,
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })
                 , (0, 0, {
@@ -692,7 +695,7 @@ class BillingCycle(models.Model):
                 , (0, 0, {
                     'name': 'Total Start Up Costs',
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })
                 , (0, 0, {
@@ -702,7 +705,7 @@ class BillingCycle(models.Model):
                 ,(0, 0, {
                     'name': ref,
                     'quantity': 1, 
-                    'account_id': 17, # account to be set
+                    'account_id': disco_sales_account_id, # account to be set
                     'price_unit': 0,
                 })],
             }
