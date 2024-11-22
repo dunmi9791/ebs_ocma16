@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from odoo import models, fields, api, _
-from odoo.addons.ebs_ocma.models.billing_cycle import MONTHS, YEARS
+from odoo.addons.ebs_ocma16.models.billing_cycle import MONTHS, YEARS
 from odoo.exceptions import UserError
 
 class GencoInvoice(models.Model):
