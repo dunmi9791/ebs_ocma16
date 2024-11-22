@@ -169,7 +169,7 @@
                                 <field name="bc_disco_parameter_ids" domain="[('partner_id.is_disco', '=', True)]"
                                        nolabel="1">
                                     <!-- <tree limit="10"> -->
-                                    <tree context="{'action_id': 'ebs_ocma.action_disco_parameters'}">
+                                    <tree context="{'action_id': 'ebs_ocma16.action_disco_parameters'}">
                                         <field name="partner_id"/>
                                         <field name="weighted_tariff" widget="boolean_toggle"/>
                                         <field name="capacity_delivered" sum="Total Capacity Delivered" width="0.5"

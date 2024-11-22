@@ -121,7 +121,7 @@
                         <button name="action_submit" type="object" string="Submit" class="oe_highlight" states="draft" />
                         <button name="action_approve" type="object" string="Approve" class="oe_highlight" states="open" />
                         <button name="action_reject" type="object" string="Reject" class="btn-danger" states="open" />
-                        <button name="%(ebs_ocma.compute_rate_wizard)d" context="{'default_myto_rate_id': active_id, 'default_usd_fx_cbn': usd_fx_cbn,
+                        <button name="%(ebs_ocma16.compute_rate_wizard)d" context="{'default_myto_rate_id': active_id, 'default_usd_fx_cbn': usd_fx_cbn,
                          'default_us_cpi': us_cpi, 'default_us_ppi': us_ppi, 'default_fixed_o_m': fixed_o_m, 'default_variable_o_m': variable_o_m, 'default_capital_recovery': capital_recovery,
                          'default_energy_charge': energy_charge, 'default_capacity_charge': capacity_charge,'default_vfcr': vfcr, 'default_vfcr_dollar': vfcr_dollar,
                          'default_wholesale_charge': wholesale_charge, 'default_calculation_type': calculation_type, 'default_fixed_o_m_dollar': fixed_o_m_dollar,

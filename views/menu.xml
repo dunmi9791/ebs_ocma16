@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <menuitem name="OCMA" id="ocma_root_menu" web_icon="ebs_ocma,static/src/img/icon.png"/>
+        <menuitem name="OCMA" id="ocma_root_menu" web_icon="ebs_ocma16,static/src/img/icon.png"/>
         <menuitem name="DISCOs " id="ocma_discos_menu" parent="ocma_root_menu" sequence="3" />
         <menuitem name="DISCOs" id="ocma_disco_menu" parent="ocma_discos_menu" sequence="1" action="action_disco_customer_form"/>
         <menuitem name="MRO" id="ocma_disco_mro" parent="ocma_discos_menu" sequence="2" action="action_ebs_ocma_disco_mro"/>
