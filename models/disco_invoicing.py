@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from odoo.addons.ebs_ocma.models.billing_cycle import MONTHS, YEARS
+from odoo.addons.ebs_ocma16.models.billing_cycle import MONTHS, YEARS
 
 class DiscoInvoicing(models.Model):
     _name = 'ebs_ocma.disco.invoicing'

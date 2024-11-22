@@ -1,6 +1,6 @@
 from odoo import models, fields, api, _
 from datetime import date
-from odoo.addons.ebs_ocma.models.billing_cycle import MONTHS, YEARS
+from odoo.addons.ebs_ocma16.models.billing_cycle import MONTHS, YEARS
 from odoo.exceptions import UserError
 
 
