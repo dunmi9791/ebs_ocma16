@@ -24,15 +24,9 @@
             parent="ocma_root_menu"/>
         <menuitem
             id="analytics_rate_menu"
-            name="Analytics"
+            name="FSS Data"
             sequence="6"
             parent="ocma_root_menu"/>
-                <menuitem
-            id="analytics_rate_action_menu"
-            name="Genco Parameters"
-            action="analytics_rate_view_action"
-            parent="analytics_rate_menu"
-            sequence="1"/>
 
 <!--        <menuitem-->
 <!--            id="myto_rate_action_menu"-->
@@ -105,6 +99,18 @@
             action="action_cbn_rates"
             parent="indices_inputs_action_menu"
             sequence="2"/>
+        <menuitem
+            id="genco_parameters_action_menu"
+            name="Genco Parameters"
+            action="action_genco_parameters"
+            parent="analytics_rate_menu"
+            sequence="2"/>
+     <menuitem
+            id="disco_parameters_action_menu"
+            name="Disco Parameters"
+            action="action_disco_parameters"
+            parent="analytics_rate_menu"
+            sequence="3"/>
 
 
 

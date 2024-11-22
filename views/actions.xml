@@ -179,6 +179,20 @@
       <field name="view_mode">tree,form</field>
 
     </record>
+    <record id="action_genco_parameters" model="ir.actions.act_window">
+      <field name="name">Genco Parameters</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">ebs_ocma.genco.invoice.billing_cycle.parameter</field>
+      <field name="view_mode">tree</field>
+
+    </record>
+    <record id="action_disco_parameters" model="ir.actions.act_window">
+      <field name="name">Disco Parameters</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">ebs_ocma.disco.invoice.billing_cycle.parameter</field>
+      <field name="view_mode">tree</field>
+
+    </record>
 
 
 

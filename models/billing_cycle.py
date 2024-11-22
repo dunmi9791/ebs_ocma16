@@ -955,7 +955,7 @@ class NBETGencoBCParaemeter(models.Model):
     total_payment_genco = fields.Float('Total Payment to Genco')
     market_percent_payment = fields.Float('Market % Payment')
 
-    billing_cycle_id = fields.Many2one(comodel_name='billing.cycle', string="Billing Cycle")
+    billing_cycle_id = fields.Many2one(comodel_name='billing.cycle', string="Billing Cycle", required=True)
 
     verified = fields.Boolean(string='verified invoice')
 
@@ -991,7 +991,7 @@ class BCDiscoParaemeter(models.Model):
     disco = fields.Boolean(string='Disco', required=False, compute='_is_disco')
     capacity_charge_compute = fields.Boolean(string='Capacity charge computed',)
 
-    billing_cycle_id = fields.Many2one(comodel_name='billing.cycle', string="Billing Cycle")
+    billing_cycle_id = fields.Many2one(comodel_name='billing.cycle', string="Billing Cycle", required=True)
     capacity_share_lines = fields.One2many(comodel_name='capacity.share.lines', inverse_name='disco_parameter_id',
                                            string='Capacity_share_lines', required=False)
     weighted_tariff = fields.Boolean(string='Weighted tariff', required=False)
